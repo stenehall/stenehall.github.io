@@ -70,27 +70,27 @@
     {% include footer.html %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/js/rrssb.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.25.0/babel.js"></script>
+    <script src="{{ site.baseurl }}/js/babel.min.js"></script>
 
-    {% if page.title %}
-        <script src="{{ site.baseurl }}/js/anchor.min.js"></script>
-        <script>
-        anchors.options.placement = 'right'
+{% if page.title %}
+  <script src="{{ site.baseurl }}/js/anchor.min.js"></script>
+  <script>
+  anchors.options.placement = 'right'
 anchors.options.class = 'hide'
 anchors.add()
 anchors.remove('.post-title')
 </script>
-    {% endif %}
-    {% if site.tracking_id %}
-        {% include analytics.html %}
-    {% endif %}
+{% endif %}
+{% if site.tracking_id %}
+  {% include analytics.html %}
+{% endif %}
 
-    <script>
-    let output = ''
+<script>
+let output = ''
 
-document.querySelectorAll('.language-typescript pre code').forEach(str => {
-  let codeStr = str.innerText
-  output = str.parentNode.appendChild(document.createElement('ul'))
+document.querySelectorAll('.language-typescript pre code').forEach(code => {
+  let codeStr = code.innerText
+  output = code.parentNode.parentNode.appendChild(document.createElement('ul'))
   codeStr = Babel.transform(codeStr, {
     presets: ['es2015'],
     plugins: ['syntax-flow', 'transform-flow-strip-types']
@@ -114,10 +114,5 @@ function print(msg) {
   li.className = special ? 'primitive' : ''
   output.appendChild(li)
 }
-
-// function clear(output) {
-//     output.innerHTML = '';
-// }
-// clear();
 </script>
 </body>
