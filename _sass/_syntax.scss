@@ -1,0 +1,319 @@
+.highlighter-rouge {
+  width: 100%;
+  margin-left: 0;
+}
+
+pre code {
+  border-radius: 10px;
+  font-family: $code-font;
+  padding: $base-spacing $base-spacing/10;
+  margin: $base-spacing;
+  @media (max-width: $break-small) {
+    font-size: 10px;
+  }
+}
+
+.highlighter-rouge ul {
+  list-style-position: inside;
+  margin: 1.5em .15em;
+  padding: 1.5em .15em;
+  border-top: 1px solid #ccc;
+
+  li {
+    margin: 0.8em 0em 0.8em 0;
+  }
+}
+
+/* Syntax highlighting styles
+------------------------------------------------------------------- */
+
+/* string */
+pre .str,
+code .str {
+  color: #ff8000;
+}
+/* keyword */
+pre .kwd,
+code .kwd {
+  color: #b0b0ff;
+  font-weight: bold;
+}
+/* comment */
+pre .com,
+code .com {
+  color: #b3cecd;
+}
+/* type */
+pre .typ,
+code .typ {
+  color: #ffffed;
+}
+/* literal */
+pre .lit,
+code .lit {
+  color: #ff00ff;
+  font-weight: bold;
+}
+/* punctuation */
+pre .pun,
+code .pun {
+  color: #e1ffbf;
+}
+/* plaintext */
+pre .pln,
+code .pln {
+  color: #ffffff;
+}
+/* xml tag */
+pre .tag,
+code .tag {
+  color: #b0b0ff;
+  font-weight: bold;
+}
+/* xml attr name */
+pre .atn,
+code .atn {
+  color: #00ff85;
+}
+/* xml attr value */
+pre .atv,
+code .atv {
+  color: #ff8000;
+}
+/* decimal */
+pre .dec,
+code .dec {
+  color: #ff00ff;
+}
+
+.highlight {
+  tab-size: 4;
+  .hll {
+    border: 1px ridge #ccc;
+    padding: 2px;
+  }
+  .err {
+    color: #a61717;
+    background-color: #e3d2d2;
+    padding: 2px 1px;
+  }
+  .w {
+    color: #bbb;
+  }
+  .p {
+    color: #ffff80;
+  }
+  .o {
+    color: #ffff80;
+  }
+  .ow {
+    color: #ffff80;
+    font-weight: bold;
+  }
+  .k {
+    color: #b0b0ff;
+    font-weight: bold;
+  }
+  .kc {
+    color: #b0b0ff;
+  }
+  .kd {
+    color: #b0b0ff;
+  }
+  .kn {
+    color: #b0b0ff;
+  }
+  .kp {
+    color: #b0b0ff;
+  }
+  .kr {
+    color: #b0b0ff;
+  }
+  .kt {
+    color: #b0b0ff;
+  }
+  .c {
+    color: #cdcdb3;
+    font-style: italic;
+  }
+  .cm {
+    color: #cdcdb3;
+    font-style: italic;
+  }
+  .cp {
+    color: red;
+    font-weight: bold;
+  }
+  .c1 {
+    color: #b3cecd;
+    font-style: italic;
+  }
+  .cs {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .gi {
+    color: #ddffdd;
+    background-color: #008c00;
+  }
+  .gi .x {
+    color: #008c00;
+    background-color: #ddffdd;
+    text-decoration: underline;
+  }
+  .gd {
+    color: #ffdddd;
+    background-color: #8c0000;
+  }
+  .gd .x {
+    color: #8c0000;
+    background-color: #ffdddd;
+    text-decoration: underline;
+  }
+  .ge {
+    font-style: italic;
+  }
+  .gr {
+    color: red;
+  }
+  .gh {
+    color: red;
+  }
+  .go {
+    color: #cdcdcd;
+  }
+  .gp {
+    color: #bbe7ff;
+  }
+  .gs {
+    font-weight: bold;
+  }
+  .gu {
+    color: red;
+  }
+  .gt {
+    color: red;
+  }
+  .n {
+    color: #eeeeee;
+  }
+  .na {
+    color: #ffff00;
+  }
+  .nb {
+    color: #9cefee;
+  }
+  .bp {
+    color: red;
+  }
+  .nc {
+    color: #ffffbf;
+    font-weight: bold;
+  }
+  .nd {
+    color: #c46eea;
+  }
+  .no {
+    color: #ffffbf;
+  }
+  .ni {
+    color: #00c9ff;
+  }
+  .ne {
+    color: #900;
+    font-weight: bold;
+  }
+  .nf {
+    color: #ffff00;
+  }
+  .nl {
+    color: #c1ff00;
+  }
+  .nn {
+    color: #ffffbf;
+    font-style: italic;
+  }
+  .nx {
+    color: #eeeeee;
+  }
+  .py {
+    color: red;
+  }
+  .nt {
+    color: #b0b0ff;
+  }
+  .nv {
+    color: #6aff00;
+  }
+  .vc {
+    color: #ff7985;
+  }
+  .vg {
+    color: #00ffae;
+  }
+  .vi {
+    color: #c1ff00;
+  }
+  .l {
+    color: #ff00ff;
+  }
+  .ld {
+    color: #009926;
+  }
+  .m {
+    color: #ff00ff;
+  }
+  .mi {
+    color: #ff00ff;
+  }
+  .il {
+    color: #ff00ff;
+  }
+  .mf {
+    color: #ff00ff;
+  }
+  .mh {
+    color: #ff00ff;
+  }
+  .mo {
+    color: #ff00ff;
+  }
+  .s {
+    color: #ff8000;
+  }
+  .sb {
+    color: red;
+  }
+  .s1 {
+    color: #ff8000;
+  }
+  .s2 {
+    color: #ff8000;
+  }
+  .sc {
+    color: #ffc800;
+  }
+  .sd {
+    color: red;
+  }
+  .se {
+    color: #ffc800;
+  }
+  .sh {
+    color: red;
+  }
+  .si {
+    color: #00c9ff;
+  }
+  .sx {
+    color: red;
+  }
+  .sr {
+    color: #ff8000;
+    border-bottom: 1px #ff8000 dotted;
+  }
+  .ss {
+    color: red;
+  }
+}

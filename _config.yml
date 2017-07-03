@@ -54,17 +54,17 @@ paginate_path: "/page/:num"
 og_image: "images/accent.png" # This will show in facebook thumbnails
 twitter_image: "http://ankitsultana.com/images/accent.png?1234" # This will show in twitter cards
 
-####################################
-####################################
-####################################
-### Build Settings | Don't Touch ###
-####################################
-####################################
-####################################
-
 markdown: kramdown
 kramdown:
-  default_lang: javascript
+  default_lang: typescript
+  syntax_highlighter_opts:
+      # Rouge Options › https://github.com/jneen/rouge#full-options
+      #css_class: 'highlight'
+      span:
+        line_numbers: false
+      block:
+        line_numbers: false
+        start_line: 1
 
 plugins:
     - jekyll-paginate
