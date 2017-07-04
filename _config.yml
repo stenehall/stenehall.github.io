@@ -21,8 +21,7 @@ copyright: Johan Stenehall
 intro: true         # Tip: Remove the span from site_heading if intro is set to true
 # This will be displayed in your intro
 short_bio: >
-    Welcome! This is <span>adventure</span>. The idea is to write something about code every day. Doable?
-    Possibly.
+    The idea is to learn something new every day. First up Flow, then Reactive Javascript and Monads.
 
 permalink: /:categories/:title
 
