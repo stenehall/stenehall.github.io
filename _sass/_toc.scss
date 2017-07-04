@@ -1,5 +1,7 @@
 #markdown-toc {
-  padding: 1.5em 0;
+  margin: 0.15em 0 0 $base-spacing;
+  padding: 0;
+  float: right;
   list-style: decimal;
   list-style-position: inside;
   display: inline-block;
@@ -15,10 +17,6 @@
 
   li {
     margin: 0.8em 0em 0.8em 0;
-  }
-
-  li ul {
-    marign-left: 1.2em;
   }
 
   li li {
