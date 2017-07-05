@@ -45,3 +45,13 @@ method2(new Number(3.14), new String('hello'), new Boolean(true)) // Ok
 method2(3.14, 'hello', true) // Errors
 method(new Number(3.14), new String('hello'), new Boolean(true)) // Errors
 ```
+
+## Mixed Types
+
+You can provide list of different types to a function, a mixed type. In general this would be something you want to avoid. But at times it's a must and then it can be useful to at least limit the accepted types to a few different.
+
+```typescript
+function stringifyBasicValue(value: string | number) {
+  return '' + value;
+}
+```

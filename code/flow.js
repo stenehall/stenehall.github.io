@@ -10,3 +10,11 @@ method('hello', true, 3.14) // Errors
 method2(new Number(3.14), new String('hello'), new Boolean(true)) // Ok
 method2(3.14, 'hello', true) // Errors
 method(new Number(3.14), new String('hello'), new Boolean(true)) // Errors
+
+// Mixed types
+function stringifyBasicValue(value: string | number) {
+  return '' + value
+}
+stringifyBasicValue('foobar') // Ok
+stringifyBasicValue(10) // Ok
+stringifyBasicValue(true) // Errors
