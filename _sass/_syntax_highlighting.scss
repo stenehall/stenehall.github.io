@@ -1,6 +1,6 @@
 .highlighter-rouge {
   width: 100%;
-  margin-left: 0;
+  margin: $base-spacing*2 0;
 }
 
 pre {
@@ -50,7 +50,7 @@ pre {
   overflow: hidden;
   background: #f7f7f7;
   color: #807d7c;
-  border-top: $base-spacing/2 solid #fff;
+  border-top: $base-spacing/4 solid #fff;
   font-family: "Menlo", "Roboto Mono", "Roboto";
 
   li {
