@@ -55,3 +55,27 @@ function stringifyBasicValue(value: string | number) {
   return '' + value;
 }
 ```
+
+## Literal Types
+
+One good use of mixed types could be in combination with literal types. Instead of mixing types you can mix literals.
+This example
+
+```typescript
+function typeLookup(type: 'success' | 'warning' | 'danger') {
+  return {
+    success: 'green',
+    warning: 'yellow',
+    danger: 'red'
+  }[type]
+}
+
+print(typeLookup('success'))
+```
+
+```typescript
+function typeLookup(type: 0 | 1 | 2) {
+  return ['green', 'yellow', 'red'][type]
+}
+print(typeLookup(1))
+```

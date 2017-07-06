@@ -1,4 +1,7 @@
 // @flow
+function print(msg) {
+  console.log(msg)
+}
 
 // Primitive type examples
 function method(x: number, y: string, z: boolean) {}
@@ -18,3 +21,19 @@ function stringifyBasicValue(value: string | number) {
 stringifyBasicValue('foobar') // Ok
 stringifyBasicValue(10) // Ok
 stringifyBasicValue(true) // Errors
+
+// Literal types
+function typeLookup(type: 'success' | 'warning' | 'danger') {
+  return {
+    success: 'green',
+    warning: 'yellow',
+    danger: 'red'
+  }[type]
+}
+
+print(typeLookup('success'))
+
+function typeLookup2(type: 0 | 1 | 2) {
+  return ['green', 'yellow', 'red'][type]
+}
+print(typeLookup2(1))
