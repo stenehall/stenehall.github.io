@@ -26,7 +26,7 @@ short_bio: >
 permalink: /:categories/:title
 
 # Comments are powered by disqus
-comments: false
+comments: true
 
 # keep about_stub roughly 12 words long for best results
 # This will show up at the bottom of each post
