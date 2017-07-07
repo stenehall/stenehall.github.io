@@ -79,3 +79,25 @@ function typeLookup(type: 0 | 1 | 2) {
 }
 print(typeLookup(1))
 ```
+
+
+## Any Types
+
+Don't use this, it's bad.
+
+## Maybe Types
+
+By prefixing any other type with `?` you tell Flow that this is an optional argument.
+
+```typescript
+function multiply(value: ?number) {
+  if (value !== undefined && value !== null) {
+    return value * value
+  }
+
+  return 0
+}
+
+print(multiply())
+print(multiply(10))
+```

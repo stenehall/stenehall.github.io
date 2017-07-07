@@ -37,3 +37,16 @@ function typeLookup2(type: 0 | 1 | 2) {
   return ['green', 'yellow', 'red'][type]
 }
 print(typeLookup2(1))
+
+// Maybe types
+function multiply(value: ?number) {
+  if (value !== undefined && value !== null) {
+    return value * value
+  }
+
+  return 0
+}
+multiply() // Ok
+multiply(0) // Ok
+multiply(10) // Works
+multiply('10') // Errors
