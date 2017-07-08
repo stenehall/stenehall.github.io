@@ -101,3 +101,23 @@ function multiply(value: ?number) {
 print(multiply())
 print(multiply(10))
 ```
+
+
+## Variable types
+
+You can give a variable a type in Flow. Once a variable have a type it'll make sure it doesn't change.
+
+```typescript
+let isUndefined = 'foo' // Ok
+isUndefined = 10 // Ok
+
+let str = 'foo'
+let isUndefined2 = str // Ok
+let isStr: string = str // Ok
+let isNumber: number = str // Error
+let isMixed: number | string = str // Ok
+
+let newStr: string
+newStr = 'bar' // Ok
+newStr = 10 // Error
+```

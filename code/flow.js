@@ -50,3 +50,17 @@ multiply() // Ok
 multiply(0) // Ok
 multiply(10) // Works
 multiply('10') // Errors
+
+// Variable types
+let isUndefined = 'foo' // Ok
+isUndefined = 10 // Ok
+
+let str = 'foo'
+let isUndefined2 = str // Ok
+let isStr: string = str // Ok
+let isNumber: number = str // Error
+let isMixed: number | string = str // Ok
+
+let newStr: string
+newStr = 'bar' // Ok
+newStr = 10 // Error
