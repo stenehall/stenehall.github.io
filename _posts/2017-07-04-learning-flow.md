@@ -102,8 +102,11 @@ print(multiply())
 print(multiply(10))
 ```
 
+## Using the types
 
-## Variable types
+The types can be used in 3 different places. Variables can have a type. Functions arguments can have types and functions can have a return type.
+
+### Variable types
 
 You can give a variable a type in Flow. Once a variable have a type it'll make sure it doesn't change.
 
@@ -120,4 +123,15 @@ let isMixed: number | string = str // Ok
 let newStr: string
 newStr = 'bar' // Ok
 newStr = 10 // Error
+```
+
+### Function types
+
+Argument types have been shown above already. Functions return types look like this.
+
+```typescript
+function func(): string {
+}
+
+const func = (): string => {}
 ```
