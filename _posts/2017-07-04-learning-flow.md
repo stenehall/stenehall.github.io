@@ -135,3 +135,29 @@ function func(): string {
 
 const func = (): string => {}
 ```
+
+
+### Object types
+
+The syntax for object types might look a bit weird at first but it's actually rather similar to the rest.
+
+```typescript
+let typeLookupObj: {
+  success: string,
+  warning: string,
+  danger: string
+} = {
+  success: 'green',
+  warning: 'yellow',
+  danger: 'red'
+}
+```
+
+Trying to access an undefined object property will generate an error.
+
+```typescript
+typeLookupObj.warning // Ok
+typeLookupObj.error // Error
+```
+
+You can use the `Maybe type` within objects for properties that might not always be defined.

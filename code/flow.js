@@ -64,3 +64,13 @@ let isMixed: number | string = str // Ok
 let newStr: string
 newStr = 'bar' // Ok
 newStr = 10 // Error
+
+// Object types
+let typeLookupObj: { success: string, warning: string, danger: string } = {
+  success: 'green',
+  warning: 'yellow',
+  danger: 'red'
+}
+
+typeLookupObj.warning // Ok
+typeLookupObj.error // Error
