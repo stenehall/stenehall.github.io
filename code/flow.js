@@ -74,3 +74,12 @@ let typeLookupObj: { success: string, warning: string, danger: string } = {
 
 typeLookupObj.warning // Ok
 typeLookupObj.error // Error
+
+// Array types
+let numberArray: number[] = [0, 1, 2, 3]
+let stringArray: string[] = ['a', 'b', 'c']
+
+let value: string = stringArray[0] // Ok
+print(value)
+let value2: string = stringArray[10] // Ok, even if it shouldn't be
+print(value2)

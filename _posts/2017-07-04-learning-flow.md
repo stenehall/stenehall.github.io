@@ -133,7 +133,7 @@ Argument types have been shown above already. Functions return types look like t
 function func(): string {
 }
 
-const func = (): string => {}
+const func2 = (): string => {}
 ```
 
 
@@ -151,13 +151,27 @@ let typeLookupObj: {
   warning: 'yellow',
   danger: 'red'
 }
-```
-
-Trying to access an undefined object property will generate an error.
-
-```typescript
 typeLookupObj.warning // Ok
 typeLookupObj.error // Error
 ```
 
+Trying to access an undefined object property will generate an error.
+
 You can use the `Maybe type` within objects for properties that might not always be defined.
+
+
+### Array types
+
+Lets skip over the verbose way of defining array types, I don't like it. The shorthand looks like this.
+
+```typescript
+let numberArray: number[] = [0, 1, 2, 3]
+let stringArray: string[] = ['a', 'b', 'c']
+
+let value: string = stringArray[0] // Ok
+print(value)
+let value2: string = stringArray[10] // Ok, even if it shouldn't be
+print(value2)
+```
+
+Just remember that array access is unsafe. Any access to the array outside of the defined elements wills till return Ok.
