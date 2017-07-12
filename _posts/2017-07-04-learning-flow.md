@@ -175,3 +175,15 @@ print(value2)
 ```
 
 Just remember that array access is unsafe. Any access to the array outside of the defined elements wills till return Ok.
+
+
+### Tuple types
+
+This is a similare type to the Array type, except here we define every single elements type.
+
+```typescript
+let tuple: [number, string, boolean] = [1, "foo", true]
+
+tuple[0] = 1 // Ok
+tuple[0] = "foo" // Error
+```

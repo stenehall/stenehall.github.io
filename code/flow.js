@@ -83,3 +83,11 @@ let value: string = stringArray[0] // Ok
 print(value)
 let value2: string = stringArray[10] // Ok, even if it shouldn't be
 print(value2)
+
+// Tuple types
+
+let tuple: [number, string, boolean] = [1, 'foo', true]
+
+tuple[0] = 1 // Ok
+tuple[0] = 'foo' // Error
+tuple[4] = 'foo' // Error
