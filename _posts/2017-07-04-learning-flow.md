@@ -187,3 +187,22 @@ let tuple: [number, string, boolean] = [1, "foo", true]
 tuple[0] = 1 // Ok
 tuple[0] = "foo" // Error
 ```
+
+### Class types
+
+Flow works well with es6 classes. Flow is a nominal type system. Meaning even if two classes have the same structure you must use the correct class name when typing them.
+
+```typescript
+class AFancyClass {
+  stringProp: string
+  numberProp: number = 42
+
+  someFunction() {
+    this.stringProp = 'foo' // Ok
+    this.numberProp = 10 // Ok
+    this.booleanProp = true // Error
+  }
+}
+
+let aFancyClass: AFancyClass = new AFancyClass()
+```
