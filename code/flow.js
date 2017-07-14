@@ -92,6 +92,8 @@ tuple[0] = 1 // Ok
 tuple[0] = 'foo' // Error
 tuple[4] = 'foo' // Error
 
+let tuple2: [number, string] = tuple // Error
+
 // Class types
 class AFancyClass {
   stringProp: string
@@ -105,3 +107,12 @@ class AFancyClass {
 }
 
 let aFancyClass: AFancyClass = new AFancyClass()
+
+// Type aliases
+type MyType = {
+  foo: number,
+  bar: boolean,
+  baz: string
+}
+
+type ComplexType = MyType | [number, string]

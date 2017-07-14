@@ -48,7 +48,7 @@ method(new Number(3.14), new String('hello'), new Boolean(true)) // Errors
 
 ## Mixed Types
 
-You can provide list of different types to a function, a mixed type. In general this would be something you want to avoid. But at times it's a must and then it can be useful to at least limit the accepted types to a few different.
+You can provide a list of different types to a function, a mixed type. In general this would be something you want to avoid. But at times it's a must and then it can be useful to at least limit the accepted types to a few different.
 
 ```typescript
 function stringifyBasicValue(value: string | number) {
@@ -179,13 +179,15 @@ Just remember that array access is unsafe. Any access to the array outside of th
 
 ### Tuple types
 
-This is a similare type to the Array type, except here we define every single elements type.
+This is a similare type to the Array type, except here we define every single elements type. The tuple lenght is enforced by Flow.
 
 ```typescript
 let tuple: [number, string, boolean] = [1, "foo", true]
 
 tuple[0] = 1 // Ok
 tuple[0] = "foo" // Error
+
+let tuple2: [number, string] = tuple // Error
 ```
 
 ### Class types
@@ -205,4 +207,19 @@ class AFancyClass {
 }
 
 let aFancyClass: AFancyClass = new AFancyClass()
+```
+
+
+### Type Aliases
+
+To simplify type definitions you can break them out to type aliases. These aliases can also be reused in multiple places.
+
+```typescript
+type MyType = {
+  foo: number,
+  bar: boolean,
+  baz: string
+}
+
+type ComplexType = MyType | [number, string]
 ```
