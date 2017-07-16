@@ -116,3 +116,41 @@ type MyType = {
 }
 
 type ComplexType = MyType | [number, string]
+
+// Interface types
+interface Language {
+  print(): string
+}
+
+class English {
+  print() {
+    return 'Hello'
+  }
+}
+
+class Swedish {
+  print() {
+    return 'Hej'
+  }
+}
+
+const english: Language = new English() // Works!
+const swedish: Language = new Swedish() // Works!
+
+class Finnish implements Language {
+  print() {
+    return 'Hei'
+  } // Works!
+}
+
+class Icelandic implements Language {
+  print() {
+    return 42
+  } // Error!
+}
+
+class Icelandic2 implements Language {
+  echo() {
+    return 'Halló'
+  }
+} // Error!

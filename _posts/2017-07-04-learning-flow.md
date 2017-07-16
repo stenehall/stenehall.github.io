@@ -192,7 +192,7 @@ let tuple2: [number, string] = tuple // Error
 
 ### Class types
 
-Flow works well with es6 classes. Flow is a nominal type system. Meaning even if two classes have the same structure you must use the correct class name when typing them.
+Flow works well with es6 classes. Flow is a nominal type system. Meaning even if two classes have the same structure you must use the correct class name when typing them. In some cases you might want to use the same type for two different classes, this is used with an interface.
 
 ```typescript
 class AFancyClass {
@@ -222,4 +222,47 @@ type MyType = {
 }
 
 type ComplexType = MyType | [number, string]
+```
+
+### Interface types
+
+An interface works much like a type alias but for classes. Instead of defining object types we define function return types.
+
+```typescript
+interface Language {
+  print(): string
+}
+
+class English {
+  print() {
+    return 'Hello'
+  }
+}
+
+class Swedish {
+  print() {
+    return 'Hej'
+  }
+}
+
+const english: Language = new English() // Works!
+const swedish: Language = new Swedish() // Works!
+
+class Finnish implements Language {
+  print() {
+    return 'Hei'
+  } // Works!
+}
+
+class Icelandic implements Language {
+  print() {
+    return 42
+  } // Error!
+}
+
+class Icelandic2 implements Language {
+  echo() {
+    return 'Halló'
+  }
+} // Error!
 ```
