@@ -266,3 +266,13 @@ class Icelandic2 implements Language {
   }
 } // Error!
 ```
+
+### Generic types
+
+Sometimes it's not useful to define a type for an argument, but you still want to make sure it still adhere to a form.
+
+```typescript
+function myFunction<T>(value: T): {value: T} {
+  return {value};
+}
+```
