@@ -15,12 +15,18 @@ method2(3.14, 'hello', true) // Error
 method(new Number(3.14), new String('hello'), new Boolean(true)) // Error
 
 // Mixed types
-function stringifyBasicValue(value: string | number) {
-  return '' + value
+function stringifyMixedReturnString(value: mixed): string {
+  if (typeof value === 'string') {
+    return "String:" + value
+  } else if (typeof value === 'number') {
+    return "Number:" + value
+  } else {
+    return `Something else: ${String(value)}`
+  }
 }
-stringifyBasicValue('foobar') // Ok
-stringifyBasicValue(10) // Ok
-stringifyBasicValue(true) // Error
+print(stringifyMixedReturnString("hello")) // Ok
+print(stringifyMixedReturnString(42)) // Ok
+print(stringifyMixedReturnString(true)) // Ok
 
 // Literal types
 function typeLookup(type: 'success' | 'warning' | 'danger') {
@@ -134,13 +140,13 @@ class Swedish {
   }
 }
 
-const english: Language = new English() // Works!
-const swedish: Language = new Swedish() // Works!
+const english: Language = new English() // Ok
+const swedish: Language = new Swedish() // Ok
 
 class Finnish implements Language {
   print() {
     return 'Hei'
-  } // Works!
+  } // Ok
 }
 
 class Icelandic implements Language {
@@ -163,3 +169,11 @@ function myFunction<T>(value: T): {value: T} {
 function myFunction<T>(value: T): {value: T} {
   return {foobar: value};
 } // Error
+
+// Union types
+function stringifyBasicValue(value: string | number) {
+  return '' + value
+}
+print(stringifyBasicValue('foobar')) // Ok
+print(stringifyBasicValue(10)) // Ok
+print(stringifyBasicValue(true)) // Error

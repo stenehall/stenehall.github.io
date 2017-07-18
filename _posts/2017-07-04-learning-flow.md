@@ -10,6 +10,8 @@ category: flow
 
 Flow uses a **static type annotation** to check your code. The idea is for you to get some of the benefits of a typed language in Javascript. To be able to code with greater confident, knowing that your types work as they should.
 
+To test run all code here you can grab [flow.js](/code/flow.js)
+
 ## Usage
 
 Install Flow via npm.
@@ -48,12 +50,21 @@ method(new Number(3.14), new String('hello'), new Boolean(true)) // Errors
 
 ## Mixed Types
 
-You can provide a list of different types to a function, a mixed type. In general this would be something you want to avoid. But at times it's a must and then it can be useful to at least limit the accepted types to a few different.
+At times we don't know what type will be passed to our function. This is not something we'd want to use often but at times it'll be useful.
 
 ```typescript
-function stringifyBasicValue(value: string | number) {
-  return '' + value;
+function stringifyMixedReturnString(value: mixed): string {
+  if (typeof value === 'string') {
+    return "String:" + value
+  } else if (typeof value === 'number') {
+    return "Number:" + value
+  } else {
+    return `Something else: ${String(value)}`
+  }
 }
+print(stringifyMixedReturnString("hello")) // Ok
+print(stringifyMixedReturnString(42)) // Ok
+print(stringifyMixedReturnString(true)) // Ok
 ```
 
 ## Literal Types
@@ -197,7 +208,7 @@ Flow works well with es6 classes. Flow is a nominal type system. Meaning even if
 ```typescript
 class AFancyClass {
   stringProp: string
-  numberProp: number = 42
+  numberProp: number
 
   someFunction() {
     this.stringProp = 'foo' // Ok
@@ -275,4 +286,20 @@ Sometimes it's not useful to define a type for an argument, but you still want t
 function myFunction<T>(value: T): {value: T} {
   return {value};
 }
+```
+
+
+### Union types
+
+You can provide a list of different types to a function, a union type. In general this would be something you want to avoid. But at times it's a must but then it can be useful to at least limit the accepted types to a few different.
+
+When creating a union type you need to make sure you handle all types.
+
+```typescript
+function stringifyBasicValue(value: string | number) {
+  return '' + value
+}
+print(stringifyBasicValue('foobar')) // Ok
+print(stringifyBasicValue(10)) // Ok
+print(stringifyBasicValue(true)) // Error
 ```
