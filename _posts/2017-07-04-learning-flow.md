@@ -201,6 +201,7 @@ tuple[0] = "foo" // Error
 let tuple2: [number, string] = tuple // Error
 ```
 
+
 ### Class types
 
 Flow works well with es6 classes. Flow is a nominal type system. Meaning even if two classes have the same structure you must use the correct class name when typing them. In some cases you might want to use the same type for two different classes, this is used with an interface.
@@ -234,6 +235,7 @@ type MyType = {
 
 type ComplexType = MyType | [number, string]
 ```
+
 
 ### Interface types
 
@@ -278,6 +280,7 @@ class Icelandic2 implements Language {
 } // Error!
 ```
 
+
 ### Generic types
 
 Sometimes it's not useful to define a type for an argument, but you still want to make sure it still adhere to a form.
@@ -296,10 +299,30 @@ You can provide a list of different types to a function, a union type. In genera
 When creating a union type you need to make sure you handle all types.
 
 ```typescript
-function stringifyBasicValue(value: string | number) {
-  return '' + value
+type unionA = number
+type unionB = string
+
+function stringifyUnionValue(arg: unionA | unionB) {
+  return '' + arg
 }
-print(stringifyBasicValue('foobar')) // Ok
-print(stringifyBasicValue(10)) // Ok
-print(stringifyBasicValue(true)) // Error
+print(stringifyUnionValue('foobar')) // Ok
+print(stringifyUnionValue(10)) // Ok
+print(stringifyUnionValue(true)) // Error
+```
+
+
+## Intersection types
+
+Instead saying that a type can be `type a` | (or) `type b` it can be useful to say that it has to be both `type a` & (and) `type b`.
+
+```typescript
+type intersectionA = {number: number}
+type intersectionB = {string: string}
+
+function stringifyIntersectionValue(arg: intersectionA & intersectionB) {
+  return `${arg.number}  ${arg.string}`
+}
+print(stringifyIntersectionValue({string: 'foobar', number: 123})) // Ok
+print(stringifyIntersectionValue({number: 10})) // Error
+print(stringifyIntersectionValue({value: true})) // Error
 ```

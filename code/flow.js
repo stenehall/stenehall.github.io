@@ -171,9 +171,23 @@ function myFunction<T>(value: T): {value: T} {
 } // Error
 
 // Union types
-function stringifyBasicValue(value: string | number) {
-  return '' + value
+type unionA = number
+type unionB = string
+
+function stringifyUnionValue(arg: unionA | unionB) {
+  return '' + arg
 }
-print(stringifyBasicValue('foobar')) // Ok
-print(stringifyBasicValue(10)) // Ok
-print(stringifyBasicValue(true)) // Error
+print(stringifyUnionValue('foobar')) // Ok
+print(stringifyUnionValue(10)) // Ok
+print(stringifyUnionValue(true)) // Error
+
+// Intersection type
+type intersectionA = {number: number}
+type intersectionB = {string: string}
+
+function stringifyIntersectionValue(arg: intersectionA & intersectionB) {
+  return `${arg.number}  ${arg.string}`
+}
+print(stringifyIntersectionValue({string: 'foobar', number: 123})) // Ok
+print(stringifyIntersectionValue({number: 10})) // Error
+print(stringifyIntersectionValue({value: true})) // Error
