@@ -311,7 +311,7 @@ print(stringifyUnionValue(true)) // Error
 ```
 
 
-## Intersection types
+### Intersection types
 
 Instead saying that a type can be `type a` | (or) `type b` it can be useful to say that it has to be both `type a` & (and) `type b`.
 
