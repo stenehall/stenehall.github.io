@@ -326,3 +326,12 @@ print(stringifyIntersectionValue({string: 'foobar', number: 123})) // Ok
 print(stringifyIntersectionValue({number: 10})) // Error
 print(stringifyIntersectionValue({value: true})) // Error
 ```
+
+## typeof
+
+You can use typeof on types.
+
+```typescript
+let typeofNumber = 42;
+let typeofNumber2: typeof typeofNumber = 3.14;    // Ok
+```
