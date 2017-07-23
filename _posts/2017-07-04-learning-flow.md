@@ -335,3 +335,8 @@ You can use typeof on types.
 let typeofNumber = 42;
 let typeofNumber2: typeof typeofNumber = 3.14;    // Ok
 ```
+
+
+## Type casting
+
+You can cast a value by doing `(value: Type)`. This could be useful if you've use the `any` type before and want to cast later on for example.
