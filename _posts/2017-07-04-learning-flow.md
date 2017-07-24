@@ -313,7 +313,7 @@ print(stringifyUnionValue(true)) // Error
 
 ### Intersection types
 
-Instead saying that a type can be `type a` | (or) `type b` it can be useful to say that it has to be both `type a` & (and) `type b`.
+Instead saying that a type can be `type a` \| `type b` it can be useful to say that it has to be both `type a` & (and) `type b`.
 
 ```typescript
 type intersectionA = {number: number}
@@ -327,7 +327,9 @@ print(stringifyIntersectionValue({number: 10})) // Error
 print(stringifyIntersectionValue({value: true})) // Error
 ```
 
-## typeof
+## Extra functionality
+
+### typeof
 
 You can use typeof on types.
 
@@ -336,7 +338,23 @@ let typeofNumber = 42;
 let typeofNumber2: typeof typeofNumber = 3.14;    // Ok
 ```
 
-
-## Type casting
+### Type casting
 
 You can cast a value by doing `(value: Type)`. This could be useful if you've use the `any` type before and want to cast later on for example.
+
+
+### $Keys\<T\>
+
+This is a useful way to get a `union` of an objects keys.
+
+```typescript
+const lookupKeys = {
+  FOO: "Some key",
+  BAR: "Another key",
+  FOOBAR: "Yet another key"
+}
+
+type Keys = $Keys<typeof lookupKeys>
+const italy: Keys = 'IT' // Ok
+const nope: Keys = 'nope' // Error
+```

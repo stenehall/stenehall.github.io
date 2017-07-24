@@ -195,3 +195,14 @@ print(stringifyIntersectionValue({value: true})) // Error
 // typeof
 let typeofNumber = 42;
 let typeofNumber2: typeof typeofNumber = 3.14;    // Ok
+
+// $Keys<T>
+const lookupKeys = {
+  FOO: "Some key",
+  BAR: "Another key",
+  FOOBAR: "Yet another key"
+}
+
+type Keys = $Keys<typeof lookupKeys>
+const okKey: Keys = 'BAR' // Ok
+const errorKey: Keys = 'nope' // Error
