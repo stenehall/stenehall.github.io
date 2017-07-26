@@ -206,3 +206,16 @@ const lookupKeys = {
 type Keys = $Keys<typeof lookupKeys>
 const okKey: Keys = 'BAR' // Ok
 const errorKey: Keys = 'nope' // Error
+
+
+// $Diff<A, B>
+
+type PropsA = { stringProp: string, numberProp: number }
+type PropsB = { numberProp: number }
+type DiffProps = $Diff<PropsA, PropsB>
+
+function setProps(props: DiffProps) { }
+
+setProps({ stringProp: 'foo' }) // Ok
+setProps({ stringProp: 'foo', numberProp: 42, extraProp: false }) // Ok
+setProps({ numberProp: 42 }) // Error

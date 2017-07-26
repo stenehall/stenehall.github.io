@@ -358,3 +358,20 @@ type Keys = $Keys<typeof lookupKeys>
 const italy: Keys = 'IT' // Ok
 const nope: Keys = 'nope' // Error
 ```
+
+### $Diff\<A, B\>
+
+Gives you the `diff` between two types. However this doesn't work exactly like I'd want. Since any extra props are ok, even those explicitly not in the diff.
+The only thing this gives us is that the diff is required.
+
+```typescript
+type PropsA = { stringProp: string, numberProp: number }
+type PropsB = { numberProp: number }
+type DiffProps = $Diff<PropsA, PropsB>
+
+function setProps(props: DiffProps) { }
+
+setProps({ stringProp: 'foo' }) // Ok
+setProps({ stringProp: 'foo', numberProp: 42, extraProp: false }) // Ok
+setProps({ numberProp: 42 }) // Error
+```
